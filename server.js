@@ -44,3 +44,10 @@ app.get('/api/health', (req, res) => {
 app.get('/api/manga', (req, res) => {
   res.json(manga);
 });
+
+app.get('/api/manga/:id', (req, res) => {
+  const item = manga.find((m) => m.id === Number(req.params.id));
+  if (!item) return res.status(404).json({ error: 'Manga not found' });
+  res.json(item);
+});
+
