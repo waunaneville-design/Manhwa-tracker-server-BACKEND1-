@@ -71,4 +71,11 @@ app.post('/api/manga/:id/favorite', (req, res) => {
   res.json(item);
 });
 
+app.get('/api/stats', (req, res) => {
+  res.json({
+    total: manga.length,
+    completed: manga.filter((m) => m.progress === 100).length,
+    favorites: manga.filter((m) => m.favorite).length
+  });
+});
 
