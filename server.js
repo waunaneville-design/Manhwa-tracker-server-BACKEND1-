@@ -63,3 +63,12 @@ item.progress = progress;
   res.json(item);
 });
 
+app.post('/api/manga/:id/favorite', (req, res) => {
+  const item = manga.find((m) => m.id === Number(req.params.id));
+  if (!item) return res.status(404).json({ error: 'Manga not found' });
+
+  item.favorite = !item.favorite;
+  res.json(item);
+});
+
+
