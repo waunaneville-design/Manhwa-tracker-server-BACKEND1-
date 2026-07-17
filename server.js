@@ -59,3 +59,7 @@ app.post('/api/manga/:id/progress', (req, res) => {
   if (!Number.isFinite(progress) || progress < 0 || progress > 100) {
     return res.status(400).json({ error: 'Progress must be between 0 and 100' });
   }
+item.progress = progress;
+  res.json(item);
+});
+
