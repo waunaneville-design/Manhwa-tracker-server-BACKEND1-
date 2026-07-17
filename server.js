@@ -33,3 +33,6 @@ const manga = [
   { id: 'go', title: 'Golem Overlord', subtitle: 'High Fantasy', cover: 'assets/go.svg', progress: { read: 20, latest: 46 }, status: 'On Hold', score: 7.9, updated: '3d ago', genres: ['High Fantasy', 'Adventure', 'Magic'], accent: '#d946ef' },
 ];
 
+app.get('/', (req, res) => {
+  res.send('Backend is running. Use /api/manga or /api/updates.');
+});
