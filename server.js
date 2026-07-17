@@ -41,3 +41,6 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'MangaTrack backend is running' });
 });
 
+app.get('/api/manga', (req, res) => {
+  res.json(manga);
+});
