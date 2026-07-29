@@ -46,30 +46,32 @@ app.get('/api/manga', (req, res) => {
 });
 
 app.get('/api/manga/:id', (req, res) => {
-  const item = manga.find((m) => m.id === Number(req.params.id));
+  const item = manga.find((m) => m.id === req.params.id);
   if (!item) return res.status(404).json({ error: 'Manga not found' });
   res.json(item);
 });
 
 app.post('/api/manga/:id/progress', (req, res) => {
-  const item = manga.find((m) => m.id === Number(req.params.id));
+  const item = manga.find((m) => m.id === req.params.id);
   if (!item) return res.status(404).json({ error: 'Manga not found' });
 
   const progress = Number(req.body.progress);
   if (!Number.isFinite(progress) || progress < 0 || progress > 100) {
     return res.status(400).json({ error: 'Progress must be between 0 and 100' });
   }
-item.progress = progress;
+
+  item.progress = progress;
   res.json(item);
 });
 
 app.post('/api/manga/:id/favorite', (req, res) => {
-  const item = manga.find((m) => m.id === Number(req.params.id));
+  const item = manga.find((m) => m.id === req.params.id);
   if (!item) return res.status(404).json({ error: 'Manga not found' });
 
   item.favorite = !item.favorite;
   res.json(item);
 });
+
 
 app.get('/api/stats', (req, res) => {
   res.json({
