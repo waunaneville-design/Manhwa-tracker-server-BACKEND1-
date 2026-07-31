@@ -1,6 +1,9 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
+
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://waunaneville_db_user:<Lascelles2007>@mangatrack.4qzoaxg.mongodb.net/mangatrack?retryWrites=true&w=majority";
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('✅ MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
