@@ -15,12 +15,16 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 const corsOptions = {
-  origin: ['http://localhost:5174'],
+  origin: [
+    'http://localhost:5173',   // ✅ add your frontend dev server
+    'http://localhost:5174',   // keep if you sometimes use this port
+    'https://your-frontend-url.onrender.com' // ✅ add deployed frontend URL if needed
+  ],
   methods: ['GET','POST','PUT','DELETE'],
   credentials: true
 };
-app.use(cors(corsOptions));
 
+app.use(cors(corsOptions));
 // MongoDB connection
 const MONGO_URI = process.env.MONGO_URI || "your-hardcoded-uri";
 mongoose.connect(MONGO_URI)
