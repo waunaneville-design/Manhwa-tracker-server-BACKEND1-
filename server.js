@@ -18,6 +18,10 @@ const mangaRoutes = require('./routes/manga');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
+
+
 const corsOptions = {
   origin: ['http://localhost:5174'], 
   methods: ['GET','POST','PUT','DELETE'],
