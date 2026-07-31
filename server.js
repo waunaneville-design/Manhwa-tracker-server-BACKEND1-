@@ -92,3 +92,16 @@ app.post('/api/signup', (req, res) => {
   // save user to database
   res.json({ message: 'User created successfully' });
 });
+
+// server.js
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+app.post('/api/signup', (req, res) => {
+  const { username, password } = req.body;
+  // validate, hash, save user
+  res.json({ message: 'User created successfully' });
+});
+
+app.listen(5000, () => console.log('Server running'));
