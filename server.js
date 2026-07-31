@@ -7,6 +7,7 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const mangaRoutes = require('./routes/manga');
 const userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
