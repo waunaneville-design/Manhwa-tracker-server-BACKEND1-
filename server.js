@@ -9,7 +9,13 @@ const mangaRoutes = require('./routes/manga');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const corsOptions = {
+  origin: ['http://localhost:5174'], // allow your frontend dev server
+  methods: ['GET','POST','PUT','DELETE'],
+  credentials: true
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // connect to MongoDB
