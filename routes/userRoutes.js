@@ -10,4 +10,18 @@ router.post('/signup', (req, res) => {
   });
 });
 
+const express = require('express');
+const router = express.Router();
+
+router.post('/signup', (req, res) => {
+  const { username, email, password } = req.body;
+  res.json({
+    message: "Signup route hit!",
+    data: { username, email, password }
+  });
+});
+
+module.exports = router;
+
+
 module.exports = router;
