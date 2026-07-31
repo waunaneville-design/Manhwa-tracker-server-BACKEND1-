@@ -31,3 +31,15 @@ app.post('/api/signup', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+app.post('/api/login', (req, res) => {
+  const { username, password } = req.body;
+
+  // For now, just accept any username/password
+  if (!username || !password) {
+    return res.status(400).json({ error: 'Missing credentials' });
+  }
+
+  // Later: check against database + bcrypt
+  res.json({ token: 'fake-jwt-token', message: 'Login successful' });
+});
