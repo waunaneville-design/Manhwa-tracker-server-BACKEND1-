@@ -1,6 +1,6 @@
 const express = require('express');
 const fetch = require('node-fetch');
-const Manga = require('../models/Manga');
+const Manga = require('../models/user');
 const jwt = require('jsonwebtoken');
 
 const router = express.Router();
