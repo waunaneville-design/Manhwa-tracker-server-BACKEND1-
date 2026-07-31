@@ -44,3 +44,8 @@ app.get('/api/health', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+app.post('/api/users/signup', async (req, res) => {
+  // signup logic here
+});
+
