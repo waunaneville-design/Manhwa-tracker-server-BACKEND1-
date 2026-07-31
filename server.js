@@ -53,3 +53,5 @@ app.post('/api/users/signup', async (req, res) => {
   // signup logic here
 });
 
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
