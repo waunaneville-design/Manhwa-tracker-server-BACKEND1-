@@ -85,3 +85,10 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
+app.post('/api/signup', (req, res) => {
+  const { username, password } = req.body;
+  // validate input
+  // hash password with bcrypt
+  // save user to database
+  res.json({ message: 'User created successfully' });
+});
